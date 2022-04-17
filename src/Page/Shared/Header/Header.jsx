@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -12,7 +13,7 @@ const Header = () => {
         variant="dark"
       >
         <Container>
-          <Navbar.Brand href="#home">Forest Insider</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Forest Insider</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -33,9 +34,9 @@ const Header = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
+              <Nav.Link as={Link} to='about'>About</Nav.Link>
+              <Nav.Link as={Link} to="login">
+                Login
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
