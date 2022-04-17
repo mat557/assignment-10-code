@@ -5,7 +5,7 @@ import './Proffesional.css';
 
 const Proffesionals = () => {
     return (
-        <div className='des-holder mt-5'>
+        <div id='work' className='des-holder mt-5'>
             <div className='tex'>
                 <h4 className=''>Hi, i am</h4>
                 <h2 className='text-success'>Andress Vidoja</h2>
