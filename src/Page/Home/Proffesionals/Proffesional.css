@@ -1,0 +1,33 @@
+.des-holder{
+    background-color: #efefef;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.tex{
+    flex-basis: 45%;
+    text-align: center;
+}
+.des-holder img{
+    width:100%;
+    height: 90vh;
+}
+
+@media only screen and (max-width:570px){
+    .des-holder{
+        flex-direction: column;
+    }
+    .des-holder img{
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width:571px) and (max-width:990px) {
+    .des-holder{
+        flex-direction: column;
+    }
+}

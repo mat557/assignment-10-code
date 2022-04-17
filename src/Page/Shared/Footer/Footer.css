@@ -1,0 +1,10 @@
+.footer-class{
+    border-radius: 10px;
+    height: 20vh;
+    background-color: green;
+    width: 90%;
+    margin:10px auto;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
