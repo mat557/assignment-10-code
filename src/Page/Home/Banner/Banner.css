@@ -1,3 +1,27 @@
-.hood{
-    height: 60vh;
+.title-part{
+    margin-bottom: 80px;
+}
+
+.size-font{
+    font-size: 55px;
+    color: #000;
+}
+
+.p-size{
+    color: black;
+}
+
+@media only screen and (max-width:570px){
+    
+    .title-part{
+        margin-bottom: 0px;
+    }
+    .size-font{
+        font-size: 25px;
+    }
+
+    .p-size{
+        margin: 0px;
+        padding: 0px;
+    }
 }

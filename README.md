@@ -11,7 +11,18 @@
  * The banner contain the most large forest the owner has visited for proffesional work
  * There also place where the owner explain about his experience
  * Find The owners difrent services  he provide in the next part
- *   
+ * this website has login/register page
+ * there is a private route , you must have to login to visite
+ * footer in every page 
+
+
+ # Techknowlodgy used in :
+
+ * react 
+ * react firebse authentication
+ * react bootstrap
+ * git hub for code hosting
+ * firebase site hosting  
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

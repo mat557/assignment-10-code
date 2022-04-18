@@ -1,22 +1,25 @@
 [
     {
         "id"  : 1,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
+        "name":"For Museum",
+        "des" : "If you need photography for museum then contact with me saying your need.This service start with 100$",
+        "price": 100,
         "img" : "https://i.ibb.co/qBGpjC2/pic-1.jpg"
     },
 
     {
         "id"  : 2,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
+        "name":"For Office",
+        "des" : "If you need photography for Office decoration  then contact with me saying your need.This service start with 90$",
+        "price":90,
         "img" : "https://i.ibb.co/TKFTvxH/pic-2.jpg"
     },
 
     {
         "id"  : 3,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
+        "name":"For Home",
+        "des" : "If you need photography for Home  and other simple decoration then contact with me saying your need.This service start with 50$",
+        "price":50,
         "img" : "https://i.ibb.co/2M1hyc2/pic-3.jpg"
     }
 ]
