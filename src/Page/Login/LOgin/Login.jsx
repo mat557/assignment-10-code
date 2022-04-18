@@ -15,13 +15,8 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     let errorElement;
-    const [
-      signInWithEmailAndPassword,
-      user,
-      loading,
-      error,
-    ] = useSignInWithEmailAndPassword(auth);
-    
+    const [signInWithEmailAndPassword,user,loading,error,] = useSignInWithEmailAndPassword(auth);
+
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
       
     if(user){
@@ -44,7 +39,7 @@ const Login = () => {
     const handleResetPassword = async() =>{
       const email = emailRef.current.value;
       await sendPasswordResetEmail(email);
-      toast('sent email');
+      toast('Email sent');
     }
 
     const nevigateRegister = event =>{
@@ -73,7 +68,7 @@ const Login = () => {
       </Form>
       {errorElement}
       <p className="w-50 mx-auto d-block" >New Here? <Link to='/register' className="text-danger pe-auto text-decoration-none" onClick={nevigateRegister}>Please Register</Link></p>
-      <p className="w-50 mx-auto d-block" >Forget Password? <button to='/register' className="btn btn-link text-success pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</button></p>
+      <p className="w-50 mx-auto d-block" >Forget Password? <button className="btn btn-link text-success pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</button></p>
       <EmailLogIn></EmailLogIn>
       <ToastContainer />
     </div>
