@@ -2,6 +2,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 
 const EmailLogIn = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -10,6 +11,12 @@ const EmailLogIn = () => {
 
     let from = location.state?.from?.pathname || "/";
     let errorElement;
+
+    if(loading){
+        <Loading></Loading>
+    }
+
+
     if (error) {
         errorElement =  <p className='text-danger'>Error: {error?.message}</p>
     }

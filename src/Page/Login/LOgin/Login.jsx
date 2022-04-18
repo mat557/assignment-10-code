@@ -5,6 +5,8 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import EmailLogIn from "../EmailLogIn/EmailLogIn";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -12,18 +14,23 @@ const Login = () => {
     const passwordRef = useRef('');
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+    let errorElement;
     const [
-        signInWithEmailAndPassword,
-        user
-      ] = useSignInWithEmailAndPassword(auth);
-
+      signInWithEmailAndPassword,
+      user,
+      loading,
+      error,
+    ] = useSignInWithEmailAndPassword(auth);
+    
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
       
-        if(user){
-          navigate(from, { replace: true });
-        }
+    if(user){
+        navigate(from, { replace: true });
+    }
 
-      
+    if (error) {
+      errorElement =  <p className='text-danger w-50 mx-auto d-block'>Error: {error?.message}</p>
+    }
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -37,7 +44,7 @@ const Login = () => {
     const handleResetPassword = async() =>{
       const email = emailRef.current.value;
       await sendPasswordResetEmail(email);
-      alert('sent email');
+      toast('sent email');
     }
 
     const nevigateRegister = event =>{
@@ -64,9 +71,11 @@ const Login = () => {
           Login
         </Button>
       </Form>
+      {errorElement}
       <p className="w-50 mx-auto d-block" >New Here? <Link to='/register' className="text-danger pe-auto text-decoration-none" onClick={nevigateRegister}>Please Register</Link></p>
-      <p className="w-50 mx-auto d-block" >Forget Password? <Link to='/register' className="text-success pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</Link></p>
+      <p className="w-50 mx-auto d-block" >Forget Password? <button to='/register' className="btn btn-link text-success pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</button></p>
       <EmailLogIn></EmailLogIn>
+      <ToastContainer />
     </div>
   );
 };
