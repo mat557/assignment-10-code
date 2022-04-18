@@ -26,7 +26,7 @@ const Banner = () => {
 
           <Carousel.Caption className="title-part">
             <h3 className="size-font">Valdivian Temperate</h3>
-            <p className="p-size">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="p-size">A south americans forest with a large amount of area with 248,100 km²</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -35,7 +35,7 @@ const Banner = () => {
           <Carousel.Caption className="title-part">
             <h3 className="size-font">Congo Rainforest</h3>
             <p className="p-size">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              This is forest is in Congo ,Africa . The total area of this forest is 3 million km².
             </p>
           </Carousel.Caption>
         </Carousel.Item>
