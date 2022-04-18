@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -15,10 +15,13 @@ const Login = () => {
         user
       ] = useSignInWithEmailAndPassword(auth);
 
+      useEffect(()=>{
+        if(user){
+          navigate(from, { replace: true });
+        }
+      },[user])
 
-      if(user){
-        navigate(from, { replace: true });
-      }
+      
 
     const handleSubmit = (event) =>{
         event.preventDefault();
