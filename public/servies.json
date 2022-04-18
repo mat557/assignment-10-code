@@ -18,27 +18,6 @@
         "name":"bullshit",
         "des" : "This is services , This is services",
         "img" : "https://i.ibb.co/2M1hyc2/pic-3.jpg"
-    },
-
-    {
-        "id"  : 4,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
-        "img" : "https://i.ibb.co/m6RM7ZB/pic-4.jpg"
-    },
-
-    {
-        "id"  : 5,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
-        "img" : "https://i.ibb.co/hmbDHz7/pic5.jpg"
-    },
-
-    {
-        "id"  : 6,
-        "name":"bullshit",
-        "des" : "This is services , This is services",
-        "img" : "https://i.ibb.co/JBqpf55/pic-5.jpg"
     }
 ]
 

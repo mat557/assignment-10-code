@@ -1,8 +1,10 @@
+import { async } from "@firebase/util";
 import React, { useEffect, useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import EmailLogIn from "../EmailLogIn/EmailLogIn";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -10,16 +12,16 @@ const Login = () => {
     const passwordRef = useRef('');
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
     const [
         signInWithEmailAndPassword,
         user
       ] = useSignInWithEmailAndPassword(auth);
 
-      useEffect(()=>{
+      
         if(user){
           navigate(from, { replace: true });
         }
-      },[user])
 
       
 
@@ -30,6 +32,12 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         signInWithEmailAndPassword(email,password);
+    }
+
+    const handleResetPassword = async() =>{
+      const email = emailRef.current.value;
+      await sendPasswordResetEmail(email);
+      alert('sent email');
     }
 
     const nevigateRegister = event =>{
@@ -44,23 +52,21 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="success" type="submit">
-          Submit
+        
+        <Button className="w-50 mx-auto d-block" variant="success" type="submit">
+          Login
         </Button>
       </Form>
-      <p>New Here? <Link to='/register' className="text-danger pe-auto text-decoration-none" onClick={nevigateRegister}>Please Register</Link></p>
+      <p className="w-50 mx-auto d-block" >New Here? <Link to='/register' className="text-danger pe-auto text-decoration-none" onClick={nevigateRegister}>Please Register</Link></p>
+      <p className="w-50 mx-auto d-block" >Forget Password? <Link to='/register' className="text-success pe-auto text-decoration-none" onClick={handleResetPassword}>Reset Password</Link></p>
+      <EmailLogIn></EmailLogIn>
     </div>
   );
 };
